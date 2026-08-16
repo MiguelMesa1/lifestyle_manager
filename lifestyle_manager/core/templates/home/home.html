@@ -1,0 +1,210 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="hero-habitos container my-5">
+
+    <div class="row align-items-center g-5">
+
+        <div class="col-lg-6">
+
+            <span class="hero-tag">
+                Pequeños cambios, grandes resultados 🌱
+            </span>
+
+            <h2 class="display-4 fw-bold mt-4">
+                Construye hábitos que transformen tu vida
+            </h2>
+
+            <p class="hero-text mt-4">
+                No necesitas cambiar todo de un día para otro.
+                Empieza con pequeñas acciones que puedas repetir cada día.
+            </p>
+
+            <div class="hero-quote mt-4">
+                “Cada acción que realizas es un voto por la persona
+                en la que deseas convertirte.”
+
+                <span>
+                    — James Clear, Hábitos Atómicos
+                </span>
+            </div>
+
+            <a href="#" class="hero-button mt-4">
+                Quiero mejorar mi vida
+            </a>
+
+        </div>
+
+
+        <div class="col-lg-6">
+
+            <div class="hero-image">
+
+                <img
+                    src="{% static 'img/images_home/prehabits.png' %}"
+                    alt="Persona mejorando sus hábitos"
+                >
+
+            </div>
+            
+
+        </div>
+        
+    </div>
+
+    
+
+</section>
+
+
+<section class="gestion-habitos container">
+
+    <div class="gestion-contenido">
+
+        <h2 class="gestion-titulo">
+            La forma más fácil de gestionar tus hábitos
+        </h2>
+
+        <p class="gestion-texto">
+            Hoy {{ hora|date:"j \d\e F \d\e Y" }} puedes empezar a cambiar
+            tu vida con pequeñas mejoras diarias.
+        </p>
+
+        <p class="gestion-texto">
+            Con nuestra herramienta gratuita de gestión de hábitos online
+            podrás visualizar lo que tienes que hacer día a día, organizar tus
+            objetivos y llevar un seguimiento de tu progreso en un solo lugar.
+        </p>
+
+        <a href="#" class="hero-button gestion-boton">
+            Regístrate gratis
+        </a>
+
+    </div>
+
+    <div class="gestion-imagen">
+        <img
+            src="{% static 'img/images_home/gestion-habitos.jpg' %}"
+            alt="Panel para gestionar hábitos"
+        >
+    </div>
+
+</section>
+<section class="gestion-habitos container">
+
+    <div class="row align-items-center g-5">
+
+        <!-- ACORDEÓN -->
+        <div class="col-lg-6">
+
+            <h2 class="gestion-titulo_2">
+                Cómo Gestionar Tus Hábitos
+            </h2>
+
+            <div class="accordion" id="accordionExample">
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button
+                            class="accordion-button"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne"
+                            aria-expanded="true"
+                            aria-controls="collapseOne"
+                        >
+                            1. Empieza con pequeños cambios
+                        </button>
+                    </h2>
+
+                    <div
+                        id="collapseOne"
+                        class="accordion-collapse collapse show"
+                        data-bs-parent="#accordionExample"
+                    >
+                        <div class="accordion-body">
+                            No intentes cambiar todo de golpe. Comienza con hábitos sencillos
+                            y fáciles de mantener para construir constancia poco a poco.
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button
+                            class="accordion-button collapsed"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo"
+                            aria-expanded="false"
+                            aria-controls="collapseTwo"
+                        >
+                            2. Crea una rutina constante
+                        </button>
+                    </h2>
+
+                    <div
+                        id="collapseTwo"
+                        class="accordion-collapse collapse"
+                        data-bs-parent="#accordionExample"
+                    >
+                        <div class="accordion-body">
+                            Define un momento específico del día para realizar cada hábito.
+                            Repetirlo en un horario similar ayuda a convertirlo en parte
+                            natural de tu rutina.
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button
+                            class="accordion-button collapsed"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapseThree"
+                            aria-expanded="false"
+                            aria-controls="collapseThree"
+                        >
+                            3. Mide tu progreso
+                        </button>
+                    </h2>
+
+                    <div
+                        id="collapseThree"
+                        class="accordion-collapse collapse"
+                        data-bs-parent="#accordionExample"
+                    >
+                        <div class="accordion-body">
+                            Lleva un registro de tus avances y reconoce cada pequeño logro.
+                            Ver tu progreso te ayudará a mantener la motivación y ajustar
+                            lo que sea necesario.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- IMAGEN -->
+        <div class="col-lg-6">
+
+            <div class="hero-image">
+                <img
+                    src="{% static 'img/images_home/task_manage.jpg' %}"
+                    alt="Persona mejorando sus hábitos"
+                >
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+{% endblock %}
