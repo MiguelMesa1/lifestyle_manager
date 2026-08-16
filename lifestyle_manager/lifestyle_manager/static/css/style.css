@@ -1196,3 +1196,288 @@ html[data-theme="dark"]
         height: 38px;
     }
 }
+
+/* =========================================================
+   LOGIN
+========================================================= */
+
+.login-section {
+    width: 100%;
+    min-height: 650px;
+
+    padding: 80px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Tarjeta */
+
+.login-card {
+    width: 100%;
+    max-width: 480px;
+
+    padding: 45px 40px;
+
+    background-color: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: 24px;
+
+    box-shadow: var(--shadow);
+}
+
+
+/* =========================
+   CABECERA
+========================= */
+
+.login-header {
+    margin-bottom: 35px;
+
+    text-align: center;
+}
+
+.login-header h1 {
+    margin-bottom: 12px;
+
+    color: var(--text);
+
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.login-header p {
+    margin: 0;
+
+    color: var(--text-secondary);
+
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   FORMULARIO
+========================= */
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 22px;
+}
+
+
+/* Grupo */
+
+.login-form .form-group {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+/* Labels */
+
+.login-form label {
+    color: var(--text);
+
+    font-size: 15px;
+    font-weight: bold;
+}
+
+
+/* Inputs */
+
+.login-form .form-control {
+    min-height: 52px;
+
+    padding: 12px 16px;
+
+    background-color: var(--bg);
+
+    color: var(--text);
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    font-size: 15px;
+
+    box-shadow: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.3s ease;
+}
+
+
+/* Placeholder */
+
+.login-form .form-control::placeholder {
+    color: var(--text-secondary);
+
+    opacity: 0.7;
+}
+
+
+/* Input seleccionado */
+
+.login-form .form-control:focus {
+    background-color: var(--surface);
+
+    color: var(--text);
+
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 4px rgba(128, 239, 128, 0.18);
+
+    outline: none;
+}
+
+
+/* =========================
+   CHECKBOX
+========================= */
+
+.login-form .form-check {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding-left: 0;
+}
+
+.login-form .form-check-input {
+    width: 18px;
+    height: 18px;
+
+    margin: 0;
+
+    border-color: var(--border);
+
+    cursor: pointer;
+}
+
+.login-form .form-check-input:checked {
+    background-color: var(--primary);
+
+    border-color: var(--primary);
+}
+
+.login-form .form-check-input:focus {
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 3px rgba(128, 239, 128, 0.2);
+}
+
+.login-form .form-check-label {
+    color: var(--text-secondary);
+
+    font-size: 14px;
+    font-weight: normal;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   BOTÓN
+========================= */
+
+.login-button {
+    width: 100%;
+
+    padding: 14px 20px;
+
+    background-color: var(--primary);
+
+    color: var(--on-primary);
+
+    border: none;
+    border-radius: 13px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.login-button:hover {
+    background-color: var(--primary-hover);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(38, 100, 55, 0.15);
+}
+
+
+/* =========================
+   REGISTRO
+========================= */
+
+.login-register {
+    margin: 5px 0 0;
+
+    color: var(--text-secondary);
+
+    font-size: 14px;
+
+    text-align: center;
+}
+
+.login-register a {
+    color: var(--text);
+
+    font-weight: bold;
+
+    text-decoration: none;
+}
+
+.login-register a:hover {
+    color: var(--primary-hover);
+
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   LOGIN MÓVIL
+========================================================= */
+
+@media (max-width: 576px) {
+
+    .login-section {
+        min-height: auto;
+
+        padding: 50px 16px;
+    }
+
+    .login-card {
+        padding: 35px 24px;
+
+        border-radius: 20px;
+    }
+
+    .login-header h1 {
+        font-size: 30px;
+    }
+
+    .login-header p {
+        font-size: 14px;
+    }
+
+}
