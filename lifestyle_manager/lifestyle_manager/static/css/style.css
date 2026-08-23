@@ -206,16 +206,24 @@ img {
     gap: 10px;
 }
 
-.menu-principal a {
+.menu-principal a,
+.menu-principal button {
     padding: 11px 17px;
+
+    background: transparent;
+    border: none;
 
     color: var(--text);
 
+    font-family: inherit;
+    font-size: inherit;
     font-weight: bold;
 
     text-decoration: none;
 
     border-radius: 10px;
+
+    cursor: pointer;
 
     transition:
         background-color 0.2s ease,
@@ -223,7 +231,8 @@ img {
         transform 0.2s ease;
 }
 
-.menu-principal a:hover {
+.menu-principal a:hover,
+.menu-principal button:hover {
     background-color: var(--primary-hover);
 
     color: var(--on-primary);
@@ -231,6 +240,10 @@ img {
     transform: translateY(-1px);
 }
 
+.menu-principal form {
+    margin: 0;
+    padding: 0;
+}
 
 
 /* =========================================================

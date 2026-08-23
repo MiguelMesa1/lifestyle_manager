@@ -1,7 +1,8 @@
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
+from django.views.decorators.http import require_POST
 
-
+# Inicio de Sesión
 def login_view(request):
 
     if request.user.is_authenticated:
@@ -36,3 +37,10 @@ def login_view(request):
             "error": error
         }
     )
+
+
+# Cerrar Sesión
+@require_POST
+def cerrar_sesion(request):
+    logout(request)
+    return redirect('home')

@@ -1,0 +1,136 @@
+   {% load static %}
+   <!-- CSS -->
+    <link
+        rel="stylesheet"
+        href="{% static 'css/style.css' %}"
+ 
+ <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer
+        class="footer-lsm"
+        id="contacto"
+    >
+
+        <div class="container">
+
+            <div class="row gy-4">
+
+
+                <!-- Información -->
+                <div class="col-lg-6 col-md-12">
+
+                    <div class="footer-info">
+
+                        <h5>
+                            Life Style Manager
+                        </h5>
+
+                        <p>
+                            Una herramienta para ayudarte a crear mejores
+                            hábitos, mantener la constancia y seguir tu
+                            progreso día a día.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Enlaces -->
+                <div class="col-lg-3 col-md-6">
+
+                    <h5>
+                        Enlaces Útiles
+                    </h5>
+
+                    <ul class="footer-links">
+
+                        <li>
+                            <a href="{% url 'dashboard' %}">
+                                Inicio
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{% url 'login' %}">
+                                Hábitos
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{% url 'login' %}">
+                                Progreso
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#contacto">
+                                Contacto
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+
+                <!-- Contacto -->
+                <div class="col-lg-3 col-md-6">
+
+                    <h5>
+                        Contacto
+                    </h5>
+
+                    <ul class="footer-contacto">
+
+                        <li>
+                            <i class="fa-solid fa-envelope"></i>
+
+                            <a href="mailto:miguelangelmesagarzon@gmail.com">
+                                miguelangelmesagarzon@gmail.com
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <i class="fa-solid fa-phone"></i>
+
+                            <a href="tel:+573148532350">
+                                +57 314 853 2350
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            <span>
+                                Cr 19 #20 - 42 Sur,
+                                Bogotá, Colombia
+                            </span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- Copyright -->
+
+        <div class="footer-copy">
+
+            © 2026 Life Style Manager.
+            Todos los derechos reservados.
+
+        </div>
+
+    </footer>

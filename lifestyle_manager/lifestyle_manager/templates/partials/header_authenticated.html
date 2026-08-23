@@ -1,0 +1,88 @@
+ {% load static %}
+   <!-- CSS -->
+    <link
+        rel="stylesheet"
+        href="{% static 'css/style.css' %}"
+    >
+ <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="header">
+
+
+        <div class="brand">
+
+            <img
+                src="{% static 'img/logo.png' %}"
+                alt="Logo Life Style Manager"
+                class="logo"
+            >
+
+            <a
+                href="{% url 'home' %}"
+                class="navbar-brand"
+            >
+                Life Style Manager
+            </a>
+
+        </div>
+
+
+        <!-- Navegación -->
+        <nav
+            class="menu-principal"
+            id="menu-principal"
+        >
+
+            <a href="{% url 'dashboard' %}">
+                Inicio
+            </a>
+
+            <a href="#">
+                Hábitos
+            </a>
+
+            <a href="#">
+                Progreso
+            </a>
+
+            <form action="{% url 'cerrar_sesion' %}" method="POST">
+                {% csrf_token %}
+                <button type="submit">Cerrar sesión</button>
+            </form>
+
+
+        </nav>
+
+
+        <div class="header-actions">
+
+            <!-- Modo oscuro -->
+            <button
+                class="theme-toggle"
+                id="theme-toggle"
+                type="button"
+                aria-label="Activar modo oscuro"
+                title="Activar modo oscuro"
+            >
+                <i class="fa-solid fa-moon"></i>
+            </button>
+
+
+            <!-- Botón hamburguesa -->
+            <button
+                class="menu-toggle"
+                type="button"
+                aria-label="Abrir menú"
+                aria-expanded="false"
+                aria-controls="menu-principal"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+        </div>
+
+    </header>

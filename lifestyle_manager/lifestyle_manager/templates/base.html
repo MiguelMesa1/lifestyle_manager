@@ -52,84 +52,11 @@
     ========================== -->
 
     <header class="header">
-
-
-        <div class="brand">
-
-            <img
-                src="{% static 'img/logo.png' %}"
-                alt="Logo Life Style Manager"
-                class="logo"
-            >
-
-            <a
-                href="{% url 'home' %}"
-                class="navbar-brand"
-            >
-                Life Style Manager
-            </a>
-
-        </div>
-
-
-        <!-- Navegación -->
-        <nav
-            class="menu-principal"
-            id="menu-principal"
-        >
-
-            <a href="{% url 'home' %}">
-                Inicio
-            </a>
-
-            <a href="#">
-                Hábitos
-            </a>
-
-            <a href="#">
-                Progreso
-            </a>
-
-            <a href="#contacto">
-                Contacto
-            </a>
-
-            <a href="{% url 'login' %}">
-                Login
-            </a>
-
-        </nav>
-
-
-        <div class="header-actions">
-
-            <!-- Modo oscuro -->
-            <button
-                class="theme-toggle"
-                id="theme-toggle"
-                type="button"
-                aria-label="Activar modo oscuro"
-                title="Activar modo oscuro"
-            >
-                <i class="fa-solid fa-moon"></i>
-            </button>
-
-
-            <!-- Botón hamburguesa -->
-            <button
-                class="menu-toggle"
-                type="button"
-                aria-label="Abrir menú"
-                aria-expanded="false"
-                aria-controls="menu-principal"
-            >
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
-        </div>
-
+        {% if user.is_authenticated %}
+            {% include "partials/header_authenticated.html" %}
+        {% else %}
+            {% include "partials/header_public.html" %}
+        {% endif %}
     </header>
 
 
@@ -152,125 +79,12 @@
          FOOTER
     ========================== -->
 
-    <footer
-        class="footer-lsm"
-        id="contacto"
-    >
-
-        <div class="container">
-
-            <div class="row gy-4">
-
-
-                <!-- Información -->
-                <div class="col-lg-6 col-md-12">
-
-                    <div class="footer-info">
-
-                        <h5>
-                            Life Style Manager
-                        </h5>
-
-                        <p>
-                            Una herramienta para ayudarte a crear mejores
-                            hábitos, mantener la constancia y seguir tu
-                            progreso día a día.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- Enlaces -->
-                <div class="col-lg-3 col-md-6">
-
-                    <h5>
-                        Enlaces Útiles
-                    </h5>
-
-                    <ul class="footer-links">
-
-                        <li>
-                            <a href="{% url 'home' %}">
-                                Inicio
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="{% url 'login' %}">
-                                Login / Registro
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#contacto">
-                                Contacto
-                            </a>
-                        </li>
-
-                    </ul>
-
-                </div>
-
-
-
-                <!-- Contacto -->
-                <div class="col-lg-3 col-md-6">
-
-                    <h5>
-                        Contacto
-                    </h5>
-
-                    <ul class="footer-contacto">
-
-                        <li>
-                            <i class="fa-solid fa-envelope"></i>
-
-                            <a href="mailto:miguelangelmesagarzon@gmail.com">
-                                miguelangelmesagarzon@gmail.com
-                            </a>
-                        </li>
-
-
-                        <li>
-                            <i class="fa-solid fa-phone"></i>
-
-                            <a href="tel:+573148532350">
-                                +57 314 853 2350
-                            </a>
-                        </li>
-
-
-                        <li>
-                            <i class="fa-solid fa-location-dot"></i>
-
-                            <span>
-                                Cr 19 #20 - 42 Sur,
-                                Bogotá, Colombia
-                            </span>
-                        </li>
-
-                    </ul>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-
-        <!-- Copyright -->
-
-        <div class="footer-copy">
-
-            © 2026 Life Style Manager.
-            Todos los derechos reservados.
-
-        </div>
-
+    <footer>
+        {% if user.is_authenticated %}
+            {% include "partials/footer_authenticated.html" %}
+        {% else %}
+            {% include "partials/footer_public.html" %}
+        {% endif %}
     </footer>
 
     <!-- Bootstrap JS -->
