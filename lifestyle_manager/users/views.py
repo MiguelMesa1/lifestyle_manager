@@ -6,7 +6,7 @@ from django.views.decorators.http import require_POST
 def login_view(request):
 
     if request.user.is_authenticated:
-        return redirect("dashboard")
+        return redirect("home")
 
     error = None
 
@@ -25,7 +25,7 @@ def login_view(request):
 
             login(request, user)
 
-            return redirect("dashboard")
+            return redirect("home")
 
         else:
             error = "Usuario o contraseña incorrectos."

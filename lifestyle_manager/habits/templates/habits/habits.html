@@ -1,0 +1,335 @@
+{% extends 'base.html' %}
+
+
+{%block content%}
+
+<section class="habits-management">
+
+    <!-- Encabezado -->
+    <div class="habits-header">
+        <span class="hero-tag">Mis hábitos</span>
+
+        <h1>Crea y administra tus hábitos</h1>
+
+        <p>
+            En esta sección puedes crear los hábitos que quieres incorporar
+            a tu rutina, organizar los días en los que deseas realizarlos
+            y administrar los hábitos que ya tienes registrados.
+        </p>
+    </div>
+
+
+    <!-- Formulario -->
+    <div class="habit-form-card">
+
+        <div class="habit-form-header">
+            {% if habito %}
+                <h2>Editar hábito</h2>
+                <p>Modifica la información de tu hábito y guarda los cambios.</p>
+            {% else %}
+                <h2>Crear nuevo hábito</h2>
+                <p>Define el hábito que quieres comenzar a trabajar.</p>
+            {% endif %}
+        </div>
+
+
+        <form
+            method="POST"
+            class="habit-form"
+
+            {% if habito %}
+                action="{% url 'editar_habito' habito.id %}"
+            {% else %}
+                action="{% url 'crear_habito' %}"
+            {% endif %}
+        >
+
+            {% csrf_token %}
+
+
+            <!-- Nombre -->
+            <div class="habit-field">
+                <label for="nombre">Nombre del hábito</label>
+
+                <input
+                    type="text"
+                    id="nombre"
+                    name="nombre"
+                    placeholder="Ej: Leer 30 minutos"
+                    value="{{ habito.nombre|default:'' }}"
+                    required
+                >
+            </div>
+
+
+            <!-- Evento -->
+            <div class="habit-field">
+                <label for="evento">Evento o actividad</label>
+
+                <input
+                    type="text"
+                    id="evento"
+                    name="evento"
+                    placeholder="Ej: Después de cenar"
+                    value="{{ habito.evento|default:'' }}"
+                    required
+                >
+            </div>
+
+
+            <!-- Frecuencia -->
+            <div class="habit-field">
+                <label for="frecuencia">Frecuencia</label>
+
+                <input
+                    type="text"
+                    id="frecuencia"
+                    name="frecuencia"
+                    placeholder="Ej: Semanal"
+                    value="{{ habito.frecuencia|default:'' }}"
+                    required
+                >
+            </div>
+
+
+            <!-- Días -->
+            <div class="habit-days">
+
+                <p class="habit-days-title">
+                    ¿Qué días quieres realizarlo?
+                </p>
+
+                <div class="habit-days-grid">
+
+                    <label class="habit-day">
+                        <input
+                            type="checkbox"
+                            name="lunes"
+                            {% if habito.lunes %}checked{% endif %}
+                        >
+                        <span>Lun</span>
+                    </label>
+
+
+                    <label class="habit-day">
+                        <input
+                            type="checkbox"
+                            name="martes"
+                            {% if habito.martes %}checked{% endif %}
+                        >
+                        <span>Mar</span>
+                    </label>
+
+
+                    <label class="habit-day">
+                        <input
+                            type="checkbox"
+                            name="miercoles"
+                            {% if habito.miercoles %}checked{% endif %}
+                        >
+                        <span>Mié</span>
+                    </label>
+
+
+                    <label class="habit-day">
+                        <input
+                            type="checkbox"
+                            name="jueves"
+                            {% if habito.jueves %}checked{% endif %}
+                        >
+                        <span>Jue</span>
+                    </label>
+
+
+                    <label class="habit-day">
+                        <input
+                            type="checkbox"
+                            name="viernes"
+                            {% if habito.viernes %}checked{% endif %}
+                        >
+                        <span>Vie</span>
+                    </label>
+
+
+                    <label class="habit-day">
+                        <input
+                            type="checkbox"
+                            name="sabado"
+                            {% if habito.sabado %}checked{% endif %}
+                        >
+                        <span>Sáb</span>
+                    </label>
+
+
+                    <label class="habit-day">
+                        <input
+                            type="checkbox"
+                            name="domingo"
+                            {% if habito.domingo %}checked{% endif %}
+                        >
+                        <span>Dom</span>
+                    </label>
+
+                </div>
+            </div>
+
+
+            <!-- Botones -->
+            <div class="habit-form-actions">
+
+                <button type="submit" class="habit-primary-button">
+
+                    {% if habito %}
+                        Guardar cambios
+                    {% else %}
+                        Crear hábito
+                    {% endif %}
+
+                </button>
+
+
+                {% if habito %}
+
+                    <a
+                        href="{% url 'listar_habitos' %}"
+                        class="habit-secondary-button"
+                    >
+                        Cancelar
+                    </a>
+
+                {% endif %}
+
+            </div>
+
+        </form>
+
+    </div>
+
+
+    <!-- Hábitos existentes -->
+    <div class="habits-list-section">
+
+        <div class="habits-list-header">
+            <div>
+                <span class="hero-tag">Tu rutina</span>
+                <h2>Hábitos creados</h2>
+            </div>
+
+            <span class="habits-counter">
+                {{ habitos|length }} hábitos
+            </span>
+        </div>
+
+
+        {% if habitos %}
+
+            <div class="habits-list">
+
+                {% for item in habitos %}
+
+                    <article class="habit-card">
+
+                        <div class="habit-card-content">
+
+                            <div class="habit-card-header">
+                                <h3>{{ item.nombre }}</h3>
+
+                                <span class="habit-frequency">
+                                    {{ item.frecuencia }}
+                                </span>
+                            </div>
+
+
+                            <p class="habit-event">
+                                {{ item.evento }}
+                            </p>
+
+
+                            <div class="habit-card-days">
+
+                                {% if item.lunes %}
+                                    <span>Lun</span>
+                                {% endif %}
+
+                                {% if item.martes %}
+                                    <span>Mar</span>
+                                {% endif %}
+
+                                {% if item.miercoles %}
+                                    <span>Mié</span>
+                                {% endif %}
+
+                                {% if item.jueves %}
+                                    <span>Jue</span>
+                                {% endif %}
+
+                                {% if item.viernes %}
+                                    <span>Vie</span>
+                                {% endif %}
+
+                                {% if item.sabado %}
+                                    <span>Sáb</span>
+                                {% endif %}
+
+                                {% if item.domingo %}
+                                    <span>Dom</span>
+                                {% endif %}
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="habit-card-actions">
+
+                            <!-- Editar -->
+                            <a
+                                href="{% url 'editar_habito' item.id %}"
+                                class="habit-edit-button"
+                            >
+                                Editar
+                            </a>
+
+
+                            <!-- Eliminar -->
+                            <form
+                                method="POST"
+                                action="{% url 'eliminar_habito' item.id %}"
+                            >
+
+                                {% csrf_token %}
+
+                                <button
+                                    type="submit"
+                                    class="habit-delete-button"
+                                >
+                                    Eliminar
+                                </button>
+
+                            </form>
+
+                        </div>
+
+                    </article>
+
+                {% endfor %}
+
+            </div>
+
+
+        {% else %}
+
+            <div class="habits-empty">
+                <h3>Aún no tienes hábitos</h3>
+
+                <p>
+                    Crea tu primer hábito utilizando el formulario de arriba.
+                </p>
+            </div>
+
+        {% endif %}
+
+    </div>
+
+</section>
+{%endblock%}
